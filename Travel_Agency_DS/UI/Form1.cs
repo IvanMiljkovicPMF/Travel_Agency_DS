@@ -1,4 +1,4 @@
-namespace Travel_Agency_DS
+namespace UI
 {
     public partial class Form1 : Form
     {
