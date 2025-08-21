@@ -1,2 +1,30 @@
-# Ignore
+# Build Folders
+bin/
+obj/
+
+# Visual Studio temporary files
 .vs/
+*.user
+*.suo
+*.cache
+*.pdb
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# Local database files
+*.db
+*.db-shm
+*.db-wal
+
+# Backup files
+*.bak
+*.old
+
+# Others
+*.tmp
+*.swp
