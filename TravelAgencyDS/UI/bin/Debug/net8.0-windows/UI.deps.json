@@ -1183,12 +1183,21 @@
           }
         }
       },
+      "KeyGenerator/1.0.0": {
+        "runtime": {
+          "KeyGenerator.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.8",
-          "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
+          "Pomelo.EntityFrameworkCore.MySql": "9.0.0",
+          "Utils": "1.0.0"
         },
         "runtime": {
           "Models.dll": {
@@ -1206,6 +1215,21 @@
         },
         "runtime": {
           "Services.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Utils/1.0.0": {
+        "dependencies": {
+          "KeyGenerator": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.8",
+          "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
+        },
+        "runtime": {
+          "Utils.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1840,12 +1864,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "KeyGenerator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
