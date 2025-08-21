@@ -47,5 +47,28 @@ namespace Data
                 optionsBuilder.UseSqlServer(_connectionString);
             }
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Unique constraint on PassportNumber
+            modelBuilder.Entity<Client>()
+                .HasIndex(c => c.PassportNumber)
+                .IsUnique();
+
+            // Configure TravelPackage inheritance
+            modelBuilder.Entity<TravelPackage>()
+                .HasDiscriminator<string>("PackageType")
+                .HasValue<SeaPackage>("Sea")
+                .HasValue<MountainPackage>("Mountain")
+                .HasValue<ExcursionPackage>("Excursion")
+                .HasValue<CruisePackage>("Cruise");
+
+            // Many-to-many: Clients <-> TravelPackages
+            modelBuilder.Entity<Client>()
+                .HasMany(c => c.TravelPackages)
+                .WithMany(p => p.Clients);
+        }
     }
+
 }
