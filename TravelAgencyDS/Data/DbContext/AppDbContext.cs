@@ -18,6 +18,12 @@ namespace Data
         }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<TravelPackage> TravelPackages { get; set; }
+        public DbSet<SeaPackage> SeaPackages { get; set; }
+        public DbSet<MountainPackage> MountainPackages { get; set; }
+        public DbSet<ExcursionPackage> ExcursionPackages { get; set; }
+        public DbSet<CruisePackage> CruisePackages { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -11,11 +11,7 @@ namespace UI
             InitializeComponent(); // Calls Designer
             _context = new AppDbContext(connectionString);
 
-           
+
         }
-
-        
-        
-
     }
 }

@@ -1,33 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utils.Encryption;
 
 namespace Models.Entities
 {
     public class Client
     {
-        [Key]
         public int Id { get; set; }
-
-        [Required]
         public string FirstName { get; set; }
-
-        [Required]
         public string LastName { get; set; }
 
-        [Required]
-        public string PassportNumber { get; set; }
+        // Private backing field to store encrypted passport number
+        private string _passportNumber;
 
-        [Required]
-        public DateTime BirthDate { get; set; }
+        // Encrypt/Decrypt automatically
+        public string PassportNumber
+        {
+            get => EncryptionHelper.Decrypt(_passportNumber);
+            set => _passportNumber = EncryptionHelper.Encrypt(value);
+        }
 
-        [Required]
-        public string Email { get; set; }
+        // Private backing field to store encrypted email
+        private string _email;
 
-        [Required]
-        public string PhoneNumber { get; set; }
+        public string Email
+        {
+            get => EncryptionHelper.Decrypt(_email);
+            set => _email = EncryptionHelper.Encrypt(value);
+        }
+
+        // Private backing field to store encrypted phone number
+        private string _phoneNumber;
+
+        public string PhoneNumber
+        {
+            get => EncryptionHelper.Decrypt(_phoneNumber);
+            set => _phoneNumber = EncryptionHelper.Encrypt(value);
+        }
+
+        public DateTime DateOfBirth { get; set; }
+
+        // A client can book multiple packages
+        public ICollection<TravelPackage> TravelPackages { get; set; } = new List<TravelPackage>();
     }
 }

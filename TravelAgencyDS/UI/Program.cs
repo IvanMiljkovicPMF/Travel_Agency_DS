@@ -1,4 +1,5 @@
 using Data;
+using TravelAgency.Services;
 
 namespace UI
 {
@@ -16,6 +17,9 @@ namespace UI
             {
                 context.Database.EnsureCreated();
             }
+
+            // Start backup service (runs every 24h)
+            var backupService = new BackupService(connectionString, "Backups");
 
             Application.Run(new Form1(connectionString));
         }
