@@ -1,2 +1,4 @@
 # Ignore
 .vs/
+travelagencyds.db-shm
+travelagencyds.db-wal
