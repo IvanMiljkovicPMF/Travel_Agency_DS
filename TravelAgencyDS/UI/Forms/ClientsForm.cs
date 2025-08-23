@@ -23,6 +23,7 @@ namespace UI.Forms
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _agencyName = agencyName ?? "Travel Agency";
 
+            labelWelcome.Text = "Welcome " + _agencyName;
         }
         public ClientsForm()
         {
