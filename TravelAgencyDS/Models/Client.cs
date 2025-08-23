@@ -1,46 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using Utils.Encryption;
+using System.ComponentModel.DataAnnotations;
+using Models.Encryption;
 
-namespace Models.Entities
+namespace Models
 {
     public class Client
     {
+        [Key]
         public int Id { get; set; }
+
+        [Required, MaxLength(50)]
         public string FirstName { get; set; }
+
+        [Required, MaxLength(50)]
         public string LastName { get; set; }
 
-        // Private backing field to store encrypted passport number
+        // Encrypted Passport Number
         private string _passportNumber;
 
-        // Encrypt/Decrypt automatically
+        [Required, MaxLength(20)]
         public string PassportNumber
         {
             get => EncryptionHelper.Decrypt(_passportNumber);
             set => _passportNumber = EncryptionHelper.Encrypt(value);
         }
 
-        // Private backing field to store encrypted email
-        private string _email;
+        public DateTime DateOfBirth { get; set; }
 
+        // Encrypted Email
+        private string _email;
+        [Required, EmailAddress]
         public string Email
         {
             get => EncryptionHelper.Decrypt(_email);
             set => _email = EncryptionHelper.Encrypt(value);
         }
 
-        // Private backing field to store encrypted phone number
+        // Encrypted Phone Number
         private string _phoneNumber;
-
+        [Required, Phone]
         public string PhoneNumber
         {
             get => EncryptionHelper.Decrypt(_phoneNumber);
             set => _phoneNumber = EncryptionHelper.Encrypt(value);
         }
 
-        public DateTime DateOfBirth { get; set; }
-
-        // A client can book multiple packages
-        public ICollection<TravelPackage> TravelPackages { get; set; } = new List<TravelPackage>();
+        // Navigacija prema rezervacijama (junction table)
+        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }
